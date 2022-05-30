@@ -34,16 +34,18 @@ public class SeanMod
 
     public SeanMod()
     {   IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+     SeanBlocks.register(eventBus);
+     SeanItems.register(eventBus);
+     SeanFluids.register(eventBus);
+     //SeanPlants.register(eventBus);
+     //SeanParticles.register(eventBus);
 
 
 
         // Register the setup method for modloading
        // FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
-         SeanBlocks.register(eventBus);
-         SeanItems.register(eventBus);
-         SeanFluids.register(eventBus);
-         //SeanParticles.register(eventBus);
+         
 
 
 
