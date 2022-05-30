@@ -1,0 +1,9 @@
+{
+  "item.seanmod.sean": "Sean Item",
+  "item.seanmod.test_bucket": "Test Bucket",
+
+  "block.seanmod.sean_block": "Sean Block",
+
+  "fluid.seanmod.test_fluid" : "Test Fluid"
+
+}
