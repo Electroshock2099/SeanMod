@@ -3,7 +3,17 @@
   "item.seanmod.test_bucket": "Test Bucket",
 
   "block.seanmod.sean_block": "Sean Block",
+  "block.seanmod.chicken_block": "Chicken Block",
+  "block.seanmod.chickenblock_raw": "Raw Chicken Block",
+  "block.seanmod.chickenblock_cooked": "Cooked Chicken Block",
+  "block.seanmod.porkchopblock_raw": "Raw Porkchop Block",
+  "block.seanmod.porkchopblock_cooked": "Cooked Porkchop Block",
 
-  "fluid.seanmod.test_fluid" : "Test Fluid"
+  "fluids.seanmod.test_fluid" : "Test Fluid",
+
+  "effects.seanmod.ghostflame" : "Ghost Flame",
+
+  "itemGroup..tab1" : "Sean's First Tab"
+
 
 }

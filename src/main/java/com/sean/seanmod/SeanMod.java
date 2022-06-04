@@ -1,9 +1,7 @@
 package com.sean.seanmod;
 
 import com.mojang.logging.LogUtils;
-import com.sean.seanmod.init.SeanBlocks;
-import com.sean.seanmod.init.SeanFluids;
-import com.sean.seanmod.init.SeanItems;
+import com.sean.seanmod.init.*;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
@@ -25,7 +23,7 @@ import org.slf4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("seanmod")
+@Mod(SeanMod.modid)
 public class SeanMod
 {
     // Directly reference a slf4j logger
@@ -34,18 +32,16 @@ public class SeanMod
 
     public SeanMod()
     {   IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-     SeanBlocks.register(eventBus);
-     SeanItems.register(eventBus);
-     SeanFluids.register(eventBus);
-     //SeanPlants.register(eventBus);
-     //SeanParticles.register(eventBus);
-
-
-
         // Register the setup method for modloading
        // FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
-         
+         SeanBlocks.register(eventBus);
+         SeanItems.register(eventBus);
+         SeanFluids.register(eventBus);
+         SeanEffects.register(eventBus);
+         //SeanPlants.register(eventBus);
+        SeanParticles.register(eventBus);
+
 
 
 
@@ -69,12 +65,18 @@ public class SeanMod
     }
 private void clientSetup(final FMLClientSetupEvent event)
     {
-        ItemBlockRenderTypes.setRenderLayer(SeanFluids.TEST_BLOCK.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(SeanFluids.TEST.get(), RenderType.translucent());
+
         ItemBlockRenderTypes.setRenderLayer(SeanFluids.TEST_FLOWING.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(SeanFluids.TEST_FLUID.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(SeanFluids.TEST_BLOCK.get(), RenderType.translucent());
+
+        ItemBlockRenderTypes.setRenderLayer(SeanFluids.MDN_FLOWING.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(SeanFluids.MDN_FLUID.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(SeanFluids.MDN_BLOCK.get(), RenderType.translucent());
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -103,7 +105,9 @@ private void clientSetup(final FMLClientSetupEvent event)
     // Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents
-    {/**
+    {
+
+        /**
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent)
         {

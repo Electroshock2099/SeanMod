@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient" : {
+    "block": "seanmod:porkchopblock_raw"
+  },
+  "result": "seanmod:porkchopblock_cooked",
+  "cookingtime": 100
+}

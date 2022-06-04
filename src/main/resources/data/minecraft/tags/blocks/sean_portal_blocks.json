@@ -1,0 +1,9 @@
+{
+  "replace": "false",
+  "values": [
+    "seanmod:seanblock",
+    "minecraft:dirt",
+    "minecraft:grass_block"
+  ]
+
+}
